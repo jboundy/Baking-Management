@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Baking_Management.Core;
 
@@ -17,6 +10,7 @@ namespace Baking_Management
         {
             InitializeComponent();
             LoadData();
+            this.FormClosing += DataManagement_FormClosing;
         }
 
         private void btnDataSave_Click(object sender, EventArgs e)
@@ -39,19 +33,23 @@ namespace Baking_Management
             form.Show();
         }
 
+        private void DataManagement_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
         public void LoadData()
         {
             var file = new FileManagement();
             gvDataManagement.ColumnCount = 2;
             gvDataManagement.ColumnHeadersVisible = true;
-            gvDataManagement.Columns[0].Name = "Ingredients";
+            gvDataManagement.Columns[0].Name = "Type";
             gvDataManagement.Columns[1].Name = "Price";
-            var rows = file.GetIngredientsFromFile();
+            var rows = file.GetTypesFromFile();
             foreach (var row in rows)
             {
-                gvDataManagement.Rows.Add(row.Ingredient, row.Price);
-            }
-            
+                gvDataManagement.Rows.Add(row.Type, row.Price);
+            }       
         }
     }
 }

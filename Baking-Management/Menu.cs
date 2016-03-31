@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Baking_Management
@@ -15,6 +8,7 @@ namespace Baking_Management
         public Menu()
         {
             InitializeComponent();
+            this.FormClosing += Menu_FormClosing;
         }
 
         private void btnEntryForm_Click(object sender, EventArgs e)
@@ -29,6 +23,11 @@ namespace Baking_Management
             this.Hide();
             DataManagment form = new DataManagment();
             form.Show();
+        }
+
+        private void Menu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

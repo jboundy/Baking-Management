@@ -34,9 +34,9 @@
             // 
             // btnEntryForm
             // 
-            this.btnEntryForm.Location = new System.Drawing.Point(107, 365);
+            this.btnEntryForm.Location = new System.Drawing.Point(111, 200);
             this.btnEntryForm.Name = "btnEntryForm";
-            this.btnEntryForm.Size = new System.Drawing.Size(119, 23);
+            this.btnEntryForm.Size = new System.Drawing.Size(178, 107);
             this.btnEntryForm.TabIndex = 0;
             this.btnEntryForm.Text = "New Data Form";
             this.btnEntryForm.UseVisualStyleBackColor = true;
@@ -44,9 +44,9 @@
             // 
             // btnDataManagement
             // 
-            this.btnDataManagement.Location = new System.Drawing.Point(273, 365);
+            this.btnDataManagement.Location = new System.Drawing.Point(353, 200);
             this.btnDataManagement.Name = "btnDataManagement";
-            this.btnDataManagement.Size = new System.Drawing.Size(142, 23);
+            this.btnDataManagement.Size = new System.Drawing.Size(179, 107);
             this.btnDataManagement.TabIndex = 1;
             this.btnDataManagement.Text = "Data Management Form";
             this.btnDataManagement.UseVisualStyleBackColor = true;
@@ -59,7 +59,9 @@
             this.ClientSize = new System.Drawing.Size(657, 485);
             this.Controls.Add(this.btnDataManagement);
             this.Controls.Add(this.btnEntryForm);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.ResumeLayout(false);
 

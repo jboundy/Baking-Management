@@ -84,6 +84,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FileStore\BakingStore.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="Properties\DataSources\Baking_Management.Core.FileManagement.datasource" />
     <None Include="Properties\DataSources\Baking_Management.Core.Models.Baking.datasource" />
     <None Include="Properties\Settings.settings">

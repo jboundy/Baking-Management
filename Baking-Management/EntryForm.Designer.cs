@@ -30,6 +30,12 @@
         {
             this.btnSaveDataEntry = new System.Windows.Forms.Button();
             this.btnCancelDataEntry = new System.Windows.Forms.Button();
+            this.lvSourceDataEntry = new System.Windows.Forms.ListView();
+            this.lvCalculationDataEntry = new System.Windows.Forms.ListView();
+            this.tbTotal = new System.Windows.Forms.TextBox();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.btnAddData = new System.Windows.Forms.Button();
+            this.btnRemoveData = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSaveDataEntry
@@ -52,16 +58,77 @@
             this.btnCancelDataEntry.UseVisualStyleBackColor = true;
             this.btnCancelDataEntry.Click += new System.EventHandler(this.btnCancelDataEntry_Click);
             // 
+            // lvSourceDataEntry
+            // 
+            this.lvSourceDataEntry.Location = new System.Drawing.Point(12, 51);
+            this.lvSourceDataEntry.Name = "lvSourceDataEntry";
+            this.lvSourceDataEntry.Size = new System.Drawing.Size(121, 333);
+            this.lvSourceDataEntry.TabIndex = 2;
+            this.lvSourceDataEntry.UseCompatibleStateImageBehavior = false;
+            // 
+            // lvCalculationDataEntry
+            // 
+            this.lvCalculationDataEntry.Location = new System.Drawing.Point(259, 51);
+            this.lvCalculationDataEntry.Name = "lvCalculationDataEntry";
+            this.lvCalculationDataEntry.Size = new System.Drawing.Size(121, 333);
+            this.lvCalculationDataEntry.TabIndex = 3;
+            this.lvCalculationDataEntry.UseCompatibleStateImageBehavior = false;
+            // 
+            // tbTotal
+            // 
+            this.tbTotal.Location = new System.Drawing.Point(516, 232);
+            this.tbTotal.Name = "tbTotal";
+            this.tbTotal.Size = new System.Drawing.Size(156, 20);
+            this.tbTotal.TabIndex = 4;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(513, 195);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(31, 13);
+            this.lblTotal.TabIndex = 5;
+            this.lblTotal.Text = "Total";
+            // 
+            // btnAddData
+            // 
+            this.btnAddData.Location = new System.Drawing.Point(151, 185);
+            this.btnAddData.Name = "btnAddData";
+            this.btnAddData.Size = new System.Drawing.Size(75, 23);
+            this.btnAddData.TabIndex = 6;
+            this.btnAddData.Text = "Add";
+            this.btnAddData.UseVisualStyleBackColor = true;
+            this.btnAddData.Click += new System.EventHandler(this.btnAddData_Click);
+            // 
+            // btnRemoveData
+            // 
+            this.btnRemoveData.Location = new System.Drawing.Point(151, 232);
+            this.btnRemoveData.Name = "btnRemoveData";
+            this.btnRemoveData.Size = new System.Drawing.Size(75, 23);
+            this.btnRemoveData.TabIndex = 7;
+            this.btnRemoveData.Text = "Remove";
+            this.btnRemoveData.UseVisualStyleBackColor = true;
+            this.btnRemoveData.Click += new System.EventHandler(this.btnRemoveData_Click);
+            // 
             // EntryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 461);
+            this.Controls.Add(this.btnRemoveData);
+            this.Controls.Add(this.btnAddData);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.tbTotal);
+            this.Controls.Add(this.lvCalculationDataEntry);
+            this.Controls.Add(this.lvSourceDataEntry);
             this.Controls.Add(this.btnCancelDataEntry);
             this.Controls.Add(this.btnSaveDataEntry);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EntryForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Data Entry";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -69,6 +136,12 @@
 
         private System.Windows.Forms.Button btnSaveDataEntry;
         private System.Windows.Forms.Button btnCancelDataEntry;
+        private System.Windows.Forms.ListView lvSourceDataEntry;
+        private System.Windows.Forms.ListView lvCalculationDataEntry;
+        private System.Windows.Forms.TextBox tbTotal;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Button btnAddData;
+        private System.Windows.Forms.Button btnRemoveData;
     }
 }
 

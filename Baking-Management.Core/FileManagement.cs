@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using Baking_Management.Core.Models;
 using System.Windows.Forms;
 using Baking_Management.Core.Interfaces;
@@ -9,19 +11,19 @@ namespace Baking_Management.Core
 {
     public class FileManagement : IFileManagement
     {
-        public List<Baking> GetIngredientsFromFile()
+        public List<Baking> GetTypesFromFile()
         {
-            var list = new List<Baking>();
-            var path = "D:/Source/Repos/Baking-Management/Baking-Management.Core/DataStore/BakingStore.csv";
-            var reader = new StreamReader(path);
-            while (!reader.EndOfStream)
+            List<Baking> list = new List<Baking>();
+            string file = GetDataFile();
+
+            using (StreamReader reader = new StreamReader(file))
             {
-                var lines = File.ReadAllLines(path).Select(a => a.Split(','));
+                var lines = File.ReadAllLines(file).Select(a => a.Split(','));
                 list.AddRange(lines.Select(line => new Baking()
                 {
-                    Ingredient = line[0], Price = line[1]
+                    Type = line[0],
+                    Price = line[1]
                 }));
-                
             }
 
             return list;
@@ -29,35 +31,61 @@ namespace Baking_Management.Core
 
         public void WriteToFile(DataGridView dataGv)
         {
-            var path = "";
-            var writer = new StreamWriter(path);
-            var data = dataGv.DataSource;
-            for (int i = 0; i < dataGv.Columns.Count; i++)
+            string outputFile = GetDataFile();
+            int count = 0;
+            if (dataGv.Columns.Count != 0)
             {
-                writer.Write(dataGv.Columns[i].HeaderText);
-                if (i != dataGv.Columns.Count)
+
+                StringBuilder sb = new StringBuilder();
+
+                if (File.Exists(outputFile))
                 {
-                    writer.Write(",");
+                    File.Delete(outputFile);
                 }
-            }
 
-            writer.Write(writer.NewLine);
+                StreamWriter sw = new StreamWriter(outputFile, true);
 
-            foreach (DataGridViewRow gridVR in dataGv.Rows)
-            {
-                for (int i = 0; i < dataGv.Columns.Count; i++)
+                // loop through each row of our DataGridView
+
+                foreach (DataGridViewRow row in dataGv.Rows)
                 {
-                    writer.Write(gridVR.Cells[i].Value);
-                    if (i != dataGv.Columns.Count)
+                    foreach (DataGridViewCell cell in row.Cells)
                     {
-                        writer.Write(",");
+                        if (cell.Value == null)
+                        {
+                            break;
+                        }
+
+                        switch (count)
+                        {
+                            default:
+                                sb.Append(cell.Value + ",");
+                                count++;
+                                break;
+                            case 1:
+                                sb.Append(cell.Value);
+                                count++;
+                                break;
+                            case 2:
+                                sb.Append(Environment.NewLine);
+                                count = 0;
+                                goto default;
+                        }
                     }
                 }
-                writer.Write(writer.NewLine);
-            }
+                sw.WriteLine(sb.ToString());
+                sw.Close();
 
-            writer.Flush();
-            writer.Close();
+                GC.Collect();
+            }
+        }
+
+        private string GetDataFile()
+        {
+            var filePath = AppDomain.CurrentDomain.BaseDirectory;
+            filePath = Directory.GetParent(filePath).FullName;
+            string file = filePath + @"\FileStore\BakingStore.csv";
+            return file;
         }
     }
 }

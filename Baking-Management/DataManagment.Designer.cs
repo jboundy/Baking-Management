@@ -91,7 +91,9 @@ namespace Baking_Management
             this.Controls.Add(this.gvDataManagement);
             this.Controls.Add(this.btnDataCancel);
             this.Controls.Add(this.btnDataSave);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DataManagment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DataManagment";
             ((System.ComponentModel.ISupportInitialize)(this.gvDataManagement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bakingBindingSource)).EndInit();
