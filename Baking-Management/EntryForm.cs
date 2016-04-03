@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Baking_Management.Core;
 
 namespace Baking_Management
 {
@@ -9,12 +10,15 @@ namespace Baking_Management
         {
             InitializeComponent();
             LoadSource();
+            LoadDestination();
             this.FormClosing += EntryForm_FormClosing;
         }
 
-        private void SaveDataEntry_Click(object sender, EventArgs e)
+        private void CalculateDataEntry_Click(object sender, EventArgs e)
         {
-
+            var calculate = new CalculateLogic();
+            var total = calculate.CalculateValues(lvCalculationDataEntry);
+            tbTotal.Text = total;
         }
 
         private void EntryForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -31,7 +35,11 @@ namespace Baking_Management
 
         private void btnAddData_Click(object sender, EventArgs e)
         {
-
+            var items = lvSourceDataEntry.SelectedItems;
+            foreach (var item in items)
+            {
+                lvCalculationDataEntry.Items.Add(item.ToString());
+            }
         }
 
         private void btnRemoveData_Click(object sender, EventArgs e)
@@ -41,7 +49,24 @@ namespace Baking_Management
 
         public void LoadSource()
         {
-           lvSourceDataEntry.Items.Add()
+            this.lvSourceDataEntry.Items.Clear();
+            var file = new FileManagement();
+            this.lvSourceDataEntry.View = View.Details;
+            this.lvSourceDataEntry.Columns.Add("Type");
+            this.lvSourceDataEntry.HeaderStyle = ColumnHeaderStyle.None;
+            var rows = file.GetTypesFromFile();
+            foreach (var row in rows)
+            {
+                lvSourceDataEntry.Items.Add(row.Type);
+            }
+        }
+
+        public void LoadDestination()
+        {
+            this.lvCalculationDataEntry.Items.Clear();
+            this.lvCalculationDataEntry.View = View.Details;
+            this.lvCalculationDataEntry.Columns.Add("Type");
+            this.lvCalculationDataEntry.HeaderStyle = ColumnHeaderStyle.None;
         }
     }
 }

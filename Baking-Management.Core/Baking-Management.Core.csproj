@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalculateLogic.cs" />
     <Compile Include="FileManagement.cs" />
+    <Compile Include="Interfaces\ICalculateLogic.cs" />
     <Compile Include="Interfaces\IFileManagement.cs" />
     <Compile Include="Models\Baking.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

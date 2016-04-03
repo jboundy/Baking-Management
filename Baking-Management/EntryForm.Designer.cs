@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSaveDataEntry = new System.Windows.Forms.Button();
+            this.btnCalculateDataEntry = new System.Windows.Forms.Button();
             this.btnCancelDataEntry = new System.Windows.Forms.Button();
             this.lvSourceDataEntry = new System.Windows.Forms.ListView();
             this.lvCalculationDataEntry = new System.Windows.Forms.ListView();
@@ -38,15 +38,15 @@
             this.btnRemoveData = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnSaveDataEntry
+            // btnCalculateDataEntry
             // 
-            this.btnSaveDataEntry.Location = new System.Drawing.Point(513, 426);
-            this.btnSaveDataEntry.Name = "btnSaveDataEntry";
-            this.btnSaveDataEntry.Size = new System.Drawing.Size(75, 23);
-            this.btnSaveDataEntry.TabIndex = 0;
-            this.btnSaveDataEntry.Text = "Save";
-            this.btnSaveDataEntry.UseVisualStyleBackColor = true;
-            this.btnSaveDataEntry.Click += new System.EventHandler(this.SaveDataEntry_Click);
+            this.btnCalculateDataEntry.Location = new System.Drawing.Point(513, 426);
+            this.btnCalculateDataEntry.Name = "btnCalculateDataEntry";
+            this.btnCalculateDataEntry.Size = new System.Drawing.Size(75, 23);
+            this.btnCalculateDataEntry.TabIndex = 0;
+            this.btnCalculateDataEntry.Text = "Calculate";
+            this.btnCalculateDataEntry.UseVisualStyleBackColor = true;
+            this.btnCalculateDataEntry.Click += new System.EventHandler(this.CalculateDataEntry_Click);
             // 
             // btnCancelDataEntry
             // 
@@ -60,6 +60,7 @@
             // 
             // lvSourceDataEntry
             // 
+            this.lvSourceDataEntry.LabelWrap = false;
             this.lvSourceDataEntry.Location = new System.Drawing.Point(12, 51);
             this.lvSourceDataEntry.Name = "lvSourceDataEntry";
             this.lvSourceDataEntry.Size = new System.Drawing.Size(121, 333);
@@ -122,7 +123,7 @@
             this.Controls.Add(this.lvCalculationDataEntry);
             this.Controls.Add(this.lvSourceDataEntry);
             this.Controls.Add(this.btnCancelDataEntry);
-            this.Controls.Add(this.btnSaveDataEntry);
+            this.Controls.Add(this.btnCalculateDataEntry);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EntryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -134,7 +135,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnSaveDataEntry;
+        private System.Windows.Forms.Button btnCalculateDataEntry;
         private System.Windows.Forms.Button btnCancelDataEntry;
         private System.Windows.Forms.ListView lvSourceDataEntry;
         private System.Windows.Forms.ListView lvCalculationDataEntry;
