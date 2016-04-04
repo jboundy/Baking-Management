@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Baking_Management.Core;
 
@@ -18,7 +19,7 @@ namespace Baking_Management
         {
             var calculate = new CalculateLogic();
             var total = calculate.CalculateValues(lvCalculationDataEntry);
-            tbTotal.Text = total;
+            tbTotal.Text = @"$" + total;
         }
 
         private void EntryForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -35,16 +36,24 @@ namespace Baking_Management
 
         private void btnAddData_Click(object sender, EventArgs e)
         {
-            var items = lvSourceDataEntry.SelectedItems;
-            foreach (var item in items)
+            var calculate = new CalculateLogic();
+            List<ListViewItem> data = calculate.GetDataContents(lvSourceDataEntry);
+
+            foreach (var item in data)
             {
-                lvCalculationDataEntry.Items.Add(item.ToString());
+                lvCalculationDataEntry.Items.Add(item.Text);
             }
         }
 
         private void btnRemoveData_Click(object sender, EventArgs e)
         {
+            var calculate = new CalculateLogic();
+            List<ListViewItem> data = calculate.GetDataContents(lvCalculationDataEntry);
 
+            foreach (var item in data)
+            {
+                lvCalculationDataEntry.Items.Remove(item);
+            }
         }
 
         public void LoadSource()
@@ -67,6 +76,13 @@ namespace Baking_Management
             this.lvCalculationDataEntry.View = View.Details;
             this.lvCalculationDataEntry.Columns.Add("Type");
             this.lvCalculationDataEntry.HeaderStyle = ColumnHeaderStyle.None;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DataManagment form = new DataManagment();
+            form.Show();
         }
     }
 }

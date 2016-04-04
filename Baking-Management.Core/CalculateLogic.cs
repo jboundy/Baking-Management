@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,18 +11,57 @@ namespace Baking_Management.Core
 {
     public class CalculateLogic : ICalculateLogic
     {
-        private FileManagement _fileManagement;
+
         public string CalculateValues(ListView lvCalculate)
         {
-            string total = "";
-            var file = _fileManagement;
+            decimal total;
+            FileManagement file = new FileManagement();
             var types = file.GetTypesFromFile();
-            foreach (var item in lvCalculate.Items)
+            var contents = GetAllDataContents(lvCalculate);
+            List<decimal> calculateThis = new List<decimal>();
+
+            foreach (var type in types)
             {
-                
+                foreach (var content in contents)
+                {
+                    if (type.Type == content.Text)
+                    {
+                        calculateThis.Add(Convert.ToDecimal(type.Price));
+                    }
+                }
             }
 
-            return total;
+            total = calculateThis.Sum();
+
+            return Convert.ToString(total, CultureInfo.CurrentCulture);
+        }
+
+        public List<ListViewItem> GetDataContents(ListView lvCollection)
+        {
+            var items = lvCollection.SelectedItems;
+            var count = lvCollection.SelectedItems.Count;
+
+            List<ListViewItem> data = new List<ListViewItem>();
+            for (int i = 0; i < count; i++)
+            {
+                data.Add(items[i]);
+            }
+
+            return data;
+        }
+
+        private List<ListViewItem> GetAllDataContents(ListView lvCollection)
+        {
+            var items = lvCollection.Items;
+            var count = lvCollection.Items.Count;
+
+            List<ListViewItem> data = new List<ListViewItem>();
+            for (int i = 0; i < count; i++)
+            {
+                data.Add(items[i]);
+            }
+
+            return data;
         }
     }
 }
