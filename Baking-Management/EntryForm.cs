@@ -68,6 +68,7 @@ namespace Baking_Management
             {
                 lvSourceDataEntry.Items.Add(row.Type);
             }
+            this.lvSourceDataEntry.AutoResizeColumn(0,ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
         public void LoadDestination()
@@ -76,6 +77,7 @@ namespace Baking_Management
             this.lvCalculationDataEntry.View = View.Details;
             this.lvCalculationDataEntry.Columns.Add("Type");
             this.lvCalculationDataEntry.HeaderStyle = ColumnHeaderStyle.None;
+            this.lvCalculationDataEntry.AutoResizeColumn(0,ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
         private void button1_Click(object sender, EventArgs e)
