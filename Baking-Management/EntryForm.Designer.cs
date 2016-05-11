@@ -64,7 +64,7 @@
             this.lvSourceDataEntry.LabelWrap = false;
             this.lvSourceDataEntry.Location = new System.Drawing.Point(12, 51);
             this.lvSourceDataEntry.Name = "lvSourceDataEntry";
-            this.lvSourceDataEntry.Size = new System.Drawing.Size(121, 333);
+            this.lvSourceDataEntry.Size = new System.Drawing.Size(177, 333);
             this.lvSourceDataEntry.TabIndex = 2;
             this.lvSourceDataEntry.UseCompatibleStateImageBehavior = false;
             // 
@@ -73,7 +73,7 @@
             this.lvCalculationDataEntry.LabelWrap = false;
             this.lvCalculationDataEntry.Location = new System.Drawing.Point(259, 51);
             this.lvCalculationDataEntry.Name = "lvCalculationDataEntry";
-            this.lvCalculationDataEntry.Size = new System.Drawing.Size(121, 333);
+            this.lvCalculationDataEntry.Size = new System.Drawing.Size(177, 333);
             this.lvCalculationDataEntry.TabIndex = 3;
             this.lvCalculationDataEntry.UseCompatibleStateImageBehavior = false;
             // 
@@ -95,7 +95,7 @@
             // 
             // btnAddData
             // 
-            this.btnAddData.Location = new System.Drawing.Point(151, 185);
+            this.btnAddData.Location = new System.Drawing.Point(217, 185);
             this.btnAddData.Name = "btnAddData";
             this.btnAddData.Size = new System.Drawing.Size(75, 23);
             this.btnAddData.TabIndex = 6;
@@ -105,7 +105,7 @@
             // 
             // btnRemoveData
             // 
-            this.btnRemoveData.Location = new System.Drawing.Point(151, 232);
+            this.btnRemoveData.Location = new System.Drawing.Point(217, 232);
             this.btnRemoveData.Name = "btnRemoveData";
             this.btnRemoveData.Size = new System.Drawing.Size(75, 23);
             this.btnRemoveData.TabIndex = 7;
