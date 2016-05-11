@@ -43,6 +43,7 @@ namespace Baking_Management
             {
                 lvCalculationDataEntry.Items.Add(item.Text);
             }
+            this.lvCalculationDataEntry.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
         private void btnRemoveData_Click(object sender, EventArgs e)
@@ -77,10 +78,9 @@ namespace Baking_Management
             this.lvCalculationDataEntry.View = View.Details;
             this.lvCalculationDataEntry.Columns.Add("Type");
             this.lvCalculationDataEntry.HeaderStyle = ColumnHeaderStyle.None;
-            this.lvCalculationDataEntry.AutoResizeColumn(0,ColumnHeaderAutoResizeStyle.HeaderSize);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnGoToDM_Click(object sender, EventArgs e)
         {
             this.Hide();
             DataManagment form = new DataManagment();

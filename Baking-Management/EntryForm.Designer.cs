@@ -36,7 +36,7 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnAddData = new System.Windows.Forms.Button();
             this.btnRemoveData = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGoToDM = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCalculateDataEntry
@@ -70,6 +70,7 @@
             // 
             // lvCalculationDataEntry
             // 
+            this.lvCalculationDataEntry.LabelWrap = false;
             this.lvCalculationDataEntry.Location = new System.Drawing.Point(259, 51);
             this.lvCalculationDataEntry.Name = "lvCalculationDataEntry";
             this.lvCalculationDataEntry.Size = new System.Drawing.Size(121, 333);
@@ -112,22 +113,22 @@
             this.btnRemoveData.UseVisualStyleBackColor = true;
             this.btnRemoveData.Click += new System.EventHandler(this.btnRemoveData_Click);
             // 
-            // button1
+            // btnGoToDM
             // 
-            this.button1.Location = new System.Drawing.Point(127, 426);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(143, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Go to Data Management";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnGoToDM.Location = new System.Drawing.Point(127, 426);
+            this.btnGoToDM.Name = "btnGoToDM";
+            this.btnGoToDM.Size = new System.Drawing.Size(143, 23);
+            this.btnGoToDM.TabIndex = 8;
+            this.btnGoToDM.Text = "Go to Data Management";
+            this.btnGoToDM.UseVisualStyleBackColor = true;
+            this.btnGoToDM.Click += new System.EventHandler(this.btnGoToDM_Click);
             // 
             // EntryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 461);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGoToDM);
             this.Controls.Add(this.btnRemoveData);
             this.Controls.Add(this.btnAddData);
             this.Controls.Add(this.lblTotal);
@@ -155,7 +156,7 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Button btnAddData;
         private System.Windows.Forms.Button btnRemoveData;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGoToDM;
     }
 }
 
