@@ -6,7 +6,7 @@ namespace Baking_Management.Core.Interfaces
 {
     interface IFileManagement
     {
-        List<Baking> GetTypesFromFile();
+        List<Baking> GetRowsFromFile();
         void WriteToFile(DataGridView dataGv);
     }
 }

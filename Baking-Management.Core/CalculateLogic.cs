@@ -16,7 +16,7 @@ namespace Baking_Management.Core
         {
             decimal total;
             FileManagement file = new FileManagement();
-            var types = file.GetTypesFromFile();
+            var types = file.GetRowsFromFile();
             var contents = GetAllDataContents(lvCalculate);
             List<decimal> calculateThis = new List<decimal>();
 

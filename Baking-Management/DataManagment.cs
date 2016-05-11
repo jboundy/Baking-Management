@@ -41,15 +41,17 @@ namespace Baking_Management
         public void LoadData()
         {
             var file = new FileManagement();
-            gvDataManagement.ColumnCount = 2;
+            gvDataManagement.ColumnCount = 3;
             gvDataManagement.ColumnHeadersVisible = true;
-            gvDataManagement.Columns[0].Name = "Type";
-            gvDataManagement.Columns[1].Name = "Price";
-            var rows = file.GetTypesFromFile();
+            gvDataManagement.Columns[0].Name = "Category";
+            gvDataManagement.Columns[1].Name = "Type";
+            gvDataManagement.Columns[2].Name = "Price";
+            var rows = file.GetRowsFromFile();
             foreach (var row in rows)
             {
-                gvDataManagement.Rows.Add(row.Type, row.Price);
-            }       
+                gvDataManagement.Rows.Add(row.Category, row.Type, row.Price);
+            }
+            gvDataManagement.AutoResizeColumns();
         }
     }
 }

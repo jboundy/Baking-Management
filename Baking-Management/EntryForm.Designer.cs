@@ -37,6 +37,7 @@
             this.btnAddData = new System.Windows.Forms.Button();
             this.btnRemoveData = new System.Windows.Forms.Button();
             this.btnGoToDM = new System.Windows.Forms.Button();
+            this.tvSource = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
             // btnCalculateDataEntry
@@ -123,11 +124,19 @@
             this.btnGoToDM.UseVisualStyleBackColor = true;
             this.btnGoToDM.Click += new System.EventHandler(this.btnGoToDM_Click);
             // 
+            // tvSource
+            // 
+            this.tvSource.Location = new System.Drawing.Point(481, 12);
+            this.tvSource.Name = "tvSource";
+            this.tvSource.Size = new System.Drawing.Size(202, 372);
+            this.tvSource.TabIndex = 9;
+            // 
             // EntryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 461);
+            this.Controls.Add(this.tvSource);
             this.Controls.Add(this.btnGoToDM);
             this.Controls.Add(this.btnRemoveData);
             this.Controls.Add(this.btnAddData);
@@ -157,6 +166,7 @@
         private System.Windows.Forms.Button btnAddData;
         private System.Windows.Forms.Button btnRemoveData;
         private System.Windows.Forms.Button btnGoToDM;
+        private System.Windows.Forms.TreeView tvSource;
     }
 }
 

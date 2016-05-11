@@ -11,24 +11,24 @@ namespace Baking_Management.Core
 {
     public class FileManagement : IFileManagement
     {
-        public List<Baking> GetTypesFromFile()
+        public List<Baking> GetRowsFromFile()
         {
             List<Baking> list = new List<Baking>();
             string file = GetDataFile();
 
-            using (StreamReader reader = new StreamReader(file))
+            using (new StreamReader(file))
             {
                 var lines = File.ReadAllLines(file).Select(a => a.Split(','));
                 list.AddRange(lines.Select(line => new Baking()
                 {
-                    Type = line[0],
-                    Price = line[1]
+                    Category = line[0],
+                    Type = line[1],
+                    Price = line[2]
                 }));
             }
 
             return list;
         }
-
         public void WriteToFile(DataGridView dataGv)
         {
             string outputFile = GetDataFile();

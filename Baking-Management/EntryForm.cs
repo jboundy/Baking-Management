@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using Baking_Management.Core;
 
@@ -12,6 +13,7 @@ namespace Baking_Management
             InitializeComponent();
             LoadSource();
             LoadDestination();
+            LoadTreeView();
             this.FormClosing += EntryForm_FormClosing;
         }
 
@@ -57,22 +59,29 @@ namespace Baking_Management
             }
         }
 
-        public void LoadSource()
+        private void btnGoToDM_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DataManagment form = new DataManagment();
+            form.Show();
+        }
+
+        private void LoadSource()
         {
             this.lvSourceDataEntry.Items.Clear();
             var file = new FileManagement();
             this.lvSourceDataEntry.View = View.Details;
             this.lvSourceDataEntry.Columns.Add("Type");
             this.lvSourceDataEntry.HeaderStyle = ColumnHeaderStyle.None;
-            var rows = file.GetTypesFromFile();
+            var rows = file.GetRowsFromFile();
             foreach (var row in rows)
             {
                 lvSourceDataEntry.Items.Add(row.Type);
             }
-            this.lvSourceDataEntry.AutoResizeColumn(0,ColumnHeaderAutoResizeStyle.ColumnContent);
+            this.lvSourceDataEntry.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
-        public void LoadDestination()
+        private void LoadDestination()
         {
             this.lvCalculationDataEntry.Items.Clear();
             this.lvCalculationDataEntry.View = View.Details;
@@ -80,11 +89,27 @@ namespace Baking_Management
             this.lvCalculationDataEntry.HeaderStyle = ColumnHeaderStyle.None;
         }
 
-        private void btnGoToDM_Click(object sender, EventArgs e)
+        private void LoadTreeView()
         {
-            this.Hide();
-            DataManagment form = new DataManagment();
-            form.Show();
+            var file = new FileManagement();
+            Dictionary<string, int> indexes = new Dictionary<string, int>();
+            List<string> keyList = new List<string>();
+            int indexer = 0;
+            var rows = file.GetRowsFromFile();
+            foreach (var row in rows)
+            {
+                if (!indexes.ContainsKey(row.Category))
+                {
+                    tvSource.Nodes.Add(row.Category);
+                    indexes.Add(row.Category, indexer);
+                    keyList.Add(row.Category);
+                    indexer++;
+                }
+                foreach (var item in keyList)
+                {
+                    tvSource.Nodes[indexes[item]].Nodes.Add(row.Category);
+                }
+            }
         }
     }
 }

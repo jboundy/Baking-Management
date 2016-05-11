@@ -63,9 +63,9 @@ namespace Baking_Management
             // gvDataManagement
             // 
             this.gvDataManagement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvDataManagement.Location = new System.Drawing.Point(161, 56);
+            this.gvDataManagement.Location = new System.Drawing.Point(113, 70);
             this.gvDataManagement.Name = "gvDataManagement";
-            this.gvDataManagement.Size = new System.Drawing.Size(244, 282);
+            this.gvDataManagement.Size = new System.Drawing.Size(343, 282);
             this.gvDataManagement.TabIndex = 11;
             // 
             // bakingBindingSource
