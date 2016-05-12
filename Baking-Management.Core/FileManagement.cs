@@ -58,18 +58,19 @@ namespace Baking_Management.Core
 
                         switch (count)
                         {
-                            default:
+                            case 0:
+                            case 1:
                                 sb.Append(cell.Value + ",");
                                 count++;
                                 break;
-                            case 1:
+                            case 2:
                                 sb.Append(cell.Value);
                                 count++;
                                 break;
-                            case 2:
+                            case 3:
                                 sb.Append(Environment.NewLine);
                                 count = 0;
-                                goto default;
+                                goto case 0;
                         }
                     }
                 }

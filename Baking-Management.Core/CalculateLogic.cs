@@ -36,7 +36,7 @@ namespace Baking_Management.Core
             return Convert.ToString(total, CultureInfo.CurrentCulture);
         }
 
-        public List<ListViewItem> GetDataContents(ListView lvCollection)
+        public List<ListViewItem> GetSelectedDataContents(ListView lvCollection)
         {
             var items = lvCollection.SelectedItems;
             var count = lvCollection.SelectedItems.Count;
@@ -48,6 +48,13 @@ namespace Baking_Management.Core
             }
 
             return data;
+        }
+
+        public string GetSelectedDataContents(TreeView tvCollection)
+        {
+            var data = tvCollection.SelectedNode;
+
+            return data.Text;
         }
 
         private List<ListViewItem> GetAllDataContents(ListView lvCollection)

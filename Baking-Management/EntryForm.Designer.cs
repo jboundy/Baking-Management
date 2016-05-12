@@ -126,9 +126,9 @@
             // 
             // tvSource
             // 
-            this.tvSource.Location = new System.Drawing.Point(481, 12);
+            this.tvSource.Location = new System.Drawing.Point(12, 48);
             this.tvSource.Name = "tvSource";
-            this.tvSource.Size = new System.Drawing.Size(202, 372);
+            this.tvSource.Size = new System.Drawing.Size(177, 336);
             this.tvSource.TabIndex = 9;
             // 
             // EntryForm

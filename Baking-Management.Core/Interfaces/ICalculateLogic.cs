@@ -10,6 +10,7 @@ namespace Baking_Management.Core.Interfaces
     interface ICalculateLogic
     {
         string CalculateValues(ListView lvCalculate);
-        List<ListViewItem> GetDataContents(ListView lvCollection);
+        List<ListViewItem> GetSelectedDataContents(ListView lvCollection);
+        string GetSelectedDataContents(TreeView tvCollection);
     }
 }

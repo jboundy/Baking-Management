@@ -11,9 +11,9 @@ namespace Baking_Management
         public EntryForm()
         {
             InitializeComponent();
-            LoadSource();
-            LoadDestination();
+            //LoadSource();
             LoadTreeView();
+            LoadDestination();
             this.FormClosing += EntryForm_FormClosing;
         }
 
@@ -39,19 +39,24 @@ namespace Baking_Management
         private void btnAddData_Click(object sender, EventArgs e)
         {
             var calculate = new CalculateLogic();
-            List<ListViewItem> data = calculate.GetDataContents(lvSourceDataEntry);
 
-            foreach (var item in data)
-            {
-                lvCalculationDataEntry.Items.Add(item.Text);
-            }
+            //removed 5/12 - JB - this uses the listview on the form rather than treeview
+            //List<ListViewItem> data = calculate.GetDataContents(lvSourceDataEntry);
+
+            //foreach (var item in data)
+            //{
+            //    lvCalculationDataEntry.Items.Add(item.Text);
+            //}
+
+            string data = calculate.GetSelectedDataContents(tvSource);
+            lvCalculationDataEntry.Items.Add(data);
             this.lvCalculationDataEntry.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
         private void btnRemoveData_Click(object sender, EventArgs e)
         {
             var calculate = new CalculateLogic();
-            List<ListViewItem> data = calculate.GetDataContents(lvCalculationDataEntry);
+            List<ListViewItem> data = calculate.GetSelectedDataContents(lvCalculationDataEntry);
 
             foreach (var item in data)
             {
@@ -93,7 +98,6 @@ namespace Baking_Management
         {
             var file = new FileManagement();
             Dictionary<string, int> indexes = new Dictionary<string, int>();
-            List<string> keyList = new List<string>();
             int indexer = 0;
             var rows = file.GetRowsFromFile();
             foreach (var row in rows)
@@ -102,13 +106,10 @@ namespace Baking_Management
                 {
                     tvSource.Nodes.Add(row.Category);
                     indexes.Add(row.Category, indexer);
-                    keyList.Add(row.Category);
                     indexer++;
                 }
-                foreach (var item in keyList)
-                {
-                    tvSource.Nodes[indexes[item]].Nodes.Add(row.Category);
-                }
+                int value = indexes[row.Category];
+                tvSource.Nodes[value].Nodes.Add(row.Type);
             }
         }
     }
