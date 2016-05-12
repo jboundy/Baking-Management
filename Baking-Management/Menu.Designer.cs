@@ -38,7 +38,7 @@
             this.btnEntryForm.Name = "btnEntryForm";
             this.btnEntryForm.Size = new System.Drawing.Size(178, 107);
             this.btnEntryForm.TabIndex = 0;
-            this.btnEntryForm.Text = "New Data Form";
+            this.btnEntryForm.Text = "Cake Pricing Form";
             this.btnEntryForm.UseVisualStyleBackColor = true;
             this.btnEntryForm.Click += new System.EventHandler(this.btnEntryForm_Click);
             // 
@@ -48,7 +48,7 @@
             this.btnDataManagement.Name = "btnDataManagement";
             this.btnDataManagement.Size = new System.Drawing.Size(179, 107);
             this.btnDataManagement.TabIndex = 1;
-            this.btnDataManagement.Text = "Data Management Form";
+            this.btnDataManagement.Text = "Edit Master Records";
             this.btnDataManagement.UseVisualStyleBackColor = true;
             this.btnDataManagement.Click += new System.EventHandler(this.btnDataManagement_Click);
             // 

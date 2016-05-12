@@ -94,7 +94,7 @@ namespace Baking_Management
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "DataManagment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DataManagment";
+            this.Text = "Master Records";
             ((System.ComponentModel.ISupportInitialize)(this.gvDataManagement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bakingBindingSource)).EndInit();
             this.ResumeLayout(false);

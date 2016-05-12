@@ -149,7 +149,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "EntryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Data Entry";
+            this.Text = "Cake Pricing Form";
             this.ResumeLayout(false);
             this.PerformLayout();
 
